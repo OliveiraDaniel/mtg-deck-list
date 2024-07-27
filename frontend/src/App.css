@@ -34,32 +34,17 @@
 }
 
 .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-ul {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  list-style: none;
-}
-
-/* Mover para o taildwind */
-/* Adicione isso ao seu arquivo CSS */
-.card {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 16px;
-  margin: 8px 0;
+  margin: 10px;
   background-color: #fff;
 }
 
 .card img {
   margin: 15px 0 0;
+  max-width: 100%;
+  height: auto;
 }
 
 .card h2 {
@@ -73,3 +58,57 @@ ul {
   color: #666;
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+  .card {
+    padding: 12px;
+  }
+
+  .card h2 {
+    font-size: 1.1em;
+  }
+
+  .card p {
+    font-size: 0.9em;
+  }
+
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 8px;
+  }
+
+  .card h2 {
+    font-size: 1em;
+  }
+
+  .card p {
+    font-size: 0.8em;
+  }
+
+  .logo {
+    height: 3em;
+    padding: 0.5em;
+  }
+}
+
+ul {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.read-the-docs {
+  color: #888;
+}
