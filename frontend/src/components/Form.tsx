@@ -2,6 +2,14 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRouter } from '@tanstack/react-router'
 import ResultList from './ResultList'
 import { useState } from 'react'
+import { fetchCards } from '../utils/api'
+
+type CardResult = {
+  id: number
+  name: string
+  cardmarket_id: number
+  image: string
+}
 
 type SearchFormData = {
   searchQuery: string
@@ -10,23 +18,31 @@ type SearchFormData = {
 const SearchForm = () => {
   const { register, handleSubmit } = useForm<SearchFormData>()
   const router = useRouter()
-  const [results, setResults] = useState<{ id: number, name: string }[]>([])
+  const [results, setResults] = useState<CardResult[]>([])
+  const [error, setError] = useState<string | null>(null)
 
-  const onSubmit: SubmitHandler<SearchFormData> = data => {
+  const onSubmit: SubmitHandler<SearchFormData> = async (data) => {
+    try {
+      // Buscar cards da API
+      const cards: CardResult[] = await fetchCards(data.searchQuery)
 
-    //Substituir pelo JSON da API
-    const jsonObject = [
-      { id: 1, name: 'Atraxa' },
-      { id: 2, name: 'Breena a Demagoga' },
-      { id: 3, name: 'Wyleth' },
-      { id: 3, name: 'Saskia' }
-    ]
+      const result: CardResult[] = cards.map((item, index) => {
+        console.log('Processing item:', item) // Adiciona um log para depuração
+        return {
+          id: index,
+          name: item.name,
+          cardmarket_id: item.cardmarket_id,
+          image: item.image || '', // Define um valor padrão caso image_uris.normal não esteja presente
+        }
+      })
 
-    const result = jsonObject.filter(item =>
-      item.name.toLowerCase().includes(data.searchQuery.toLowerCase())
-    )
-
-    setResults(result)
+      console.log('resultresultresult', result)
+      setResults(result)
+      setError(null)
+    } catch (error) {
+      setResults([])
+      setError('Erro ao buscar dados da API. Tente novamente mais tarde.')
+    }
 
     router.navigate({
       to: '/',
@@ -44,6 +60,7 @@ const SearchForm = () => {
         />
         <button type="submit">Buscar</button>
       </form>
+      {error && <p>{error}</p>}
       <ResultList results={results} />
     </>
   )

@@ -41,6 +41,13 @@
   color: #888;
 }
 
+ul {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  list-style: none;
+}
+
 /* Mover para o taildwind */
 /* Adicione isso ao seu arquivo CSS */
 .card {
@@ -49,6 +56,10 @@
   padding: 16px;
   margin: 8px 0;
   background-color: #fff;
+}
+
+.card img {
+  margin: 15px 0 0;
 }
 
 .card h2 {

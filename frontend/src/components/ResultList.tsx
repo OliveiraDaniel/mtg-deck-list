@@ -1,19 +1,26 @@
+import React from 'react'
+
 type ResultListProps = {
-    results: { id: number, name: string }[]
-  }
-  
-  const ResultList = ({ results }: ResultListProps) => {
-    return (
-      <div>
-        {results.map(result => (
-          <div key={result.id} className="card">
-            <h2>{result.name}</h2>
-            <p>ID: {result.id}</p>
-          </div>
-        ))}
-      </div>
-    )
-  }
-  
-  export default ResultList
-  
+  results: { id: number; name: string, cardmarket_id: number, image: string }[]
+}
+
+const ResultList: React.FC<ResultListProps> = ({ results }) => {
+  return (
+    <ul>
+      {results.map((result) => {
+        console.log('Rendering result:', result) // Adiciona um log para depuração
+        return (
+          <li key={result.id} className="card">
+            <div key={result.cardmarket_id}>
+              <h2>{result.name}</h2>
+              <img src={result.image} alt={result.name} />
+              <p>ID: {result.cardmarket_id}</p>
+            </div>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+export default ResultList

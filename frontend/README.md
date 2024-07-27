@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# MTG Deck List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação web que permite buscar e listar cards de Magic: The Gathering (MTG) usando a API do Scryfall. O foco é na busca de comandantes para decks de Commander.
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Sobre](#sobre)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Usadas](#tecnologias-usadas)
+- [Configuração do Projeto](#configuração-do-projeto)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Como Executar](#como-executar)
+- [Como Contribuir](#como-contribuir)
+- [Licença](#licença)
 
-## Expanding the ESLint configuration
+## Sobre
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+O projeto permite a busca de cards de MTG, com foco em comandantes para o formato Commander. Utiliza a API do Scryfall para obter os dados dos cards e fornece uma interface para pesquisa e visualização dos resultados.
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Pesquisa de cards por nome
+- Exibição de resultados com detalhes do card
+- Manipulação de erros na busca
+- Integração com a API do Scryfall para obter dados dos cards
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Tecnologias Usadas
+
+- **React**: Biblioteca para construção da interface do usuário.
+- **Vite**: Ferramenta de construção e bundling.
+- **React Hook Form**: Biblioteca para gerenciamento de formulários.
+- **TanStack Router**: Biblioteca para gerenciamento de roteamento.
+- **Axios**: Cliente HTTP para chamadas de API.
+- **Scryfall API**: API para busca de dados de cards de MTG.
+
+## Configuração do Projeto
+
+### Requisitos
+
+- Node.js
+- npm ou yarn
+
+### Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/OliveiraDaniel/mtg-deck-list.git
+cd mtg-deck-list
+npm install
+# ou
+yarn install
