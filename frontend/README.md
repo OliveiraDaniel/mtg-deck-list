@@ -2,17 +2,6 @@
 
 Este projeto é uma aplicação web que permite buscar e listar cards de Magic: The Gathering (MTG) usando a API do Scryfall. O foco é na busca de comandantes para decks de Commander.
 
-## Índice
-
-- [Sobre](#sobre)
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias Usadas](#tecnologias-usadas)
-- [Configuração do Projeto](#configuração-do-projeto)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Como Executar](#como-executar)
-- [Como Contribuir](#como-contribuir)
-- [Licença](#licença)
-
 ## Sobre
 
 O projeto permite a busca de cards de MTG, com foco em comandantes para o formato Commander. Utiliza a API do Scryfall para obter os dados dos cards e fornece uma interface para pesquisa e visualização dos resultados.
